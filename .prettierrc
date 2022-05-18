@@ -1,0 +1,12 @@
+{
+  "overrides": [
+    {
+      "files": "pages/**/*.mdx",
+      "options": {
+        "parser": "mdx",
+        "printWidth": 80,
+        "proseWrap": "always"
+      }
+    }
+  ]
+}
