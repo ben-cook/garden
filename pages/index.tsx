@@ -1,11 +1,11 @@
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-// import { readdirSync, lstatSync, readFileSync } from "fs";
-import matter from "gray-matter";
+import { getAllPosts, Post } from "../lib/posts";
 
-// const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
-const Home = ({}) => {
+const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
+  posts,
+}) => {
   return (
     <div className="flex justify-center items-start h-full">
       <Head>
@@ -25,7 +25,7 @@ const Home = ({}) => {
 
         <h6 className="text-2xl mt-4">Articles:</h6>
         <ul className="text-lg mb-4">
-          {/* {posts.map(({ title, slug }) => (
+          {posts.map(({ title, slug }) => (
             <li key={slug}>
               <Link href={`/${slug}`}>
                 <a>
@@ -33,7 +33,7 @@ const Home = ({}) => {
                 </a>
               </Link>
             </li>
-          ))} */}
+          ))}
         </ul>
 
         <h6 className="text-2xl mt-4">Inspiration:</h6>
@@ -55,53 +55,14 @@ const Home = ({}) => {
   );
 };
 
-type Post = {
-  title: string;
-  slug: string;
+export const getStaticProps: GetStaticProps<{ posts: Post[] }> = () => {
+  const posts = getAllPosts();
+
+  return {
+    props: {
+      posts,
+    },
+  };
 };
-
-// export const getStaticProps: GetStaticProps<{ posts: Post[] }> = () => {
-//   const posts = getAllPosts();
-
-//   return {
-//     props: {
-//       posts
-//      },
-//   };
-// };
-
-// export const getAllPosts = (path: string): Post[] => {
-//   if (path.slice(-1) != "/") path += "/";
-
-//   const posts = readdirSync(path)
-//     .filter((file) => {
-//       if (!file.endsWith(".js")) return false;
-
-//       if (["_app.js", "_document.js", "_error.js", "index.js"].includes(file))
-//         return false;
-
-//       // console.log(file);
-
-//       const stat = lstatSync(path + file);
-//       return stat.isFile();
-//     })
-//     .map((file) => {
-//       // console.log(file);
-
-//       const contents = readFileSync(path + file);
-//       console.log(contents);
-
-//       const parsed = matter(contents);
-
-//       // console.log(parsed);
-
-//       return {
-//         title: parsed?.data?.title || "A title!",
-//         slug: file.slice(0, file.length - 3),
-//       };
-//     });
-
-//   return posts;
-// };
 
 export default Home;
