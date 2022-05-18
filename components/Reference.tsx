@@ -16,7 +16,7 @@ export const Reference = ({ id, text, side }: Props) => (
 
     <span
       id={`aside${id}`}
-      className="text-gray-500 w-1/2 max-w-sm absolute block -mt-6 right-0 border-y -mx-6 px-2"
+      className="text-gray-500 w-2/3 max-w-sm absolute block -mt-8 -mx-10 pt-8"
       style={
         side == "right"
           ? {
@@ -29,7 +29,21 @@ export const Reference = ({ id, text, side }: Props) => (
             }
       }
     >
-      {text}
+      <a
+        className="flex justify-center items-center border-x border-t absolute top-0 h-8 w-8"
+        style={
+          side == "right"
+            ? {
+                left: 0,
+              }
+            : {
+                right: 0,
+              }
+        }
+      >
+        {id}
+      </a>
+      <span className="border-y relative block p-2">{text}</span>
     </span>
   </>
 );

@@ -4,6 +4,7 @@ import { H1, H2, H3, H4, H5, H6 } from "./mdx/Heading";
 import { MDXComponents } from "mdx/types";
 import { Reference } from "./Reference";
 import { Paragraph } from "./mdx/Paragraph";
+import { MDXLink } from "./mdx/Link";
 
 type Props = {
   children: ReactNode;
@@ -17,6 +18,7 @@ const components: MDXComponents = {
   h5: H5,
   h6: H6,
   p: Paragraph,
+  a: MDXLink,
   Reference: Reference,
 };
 

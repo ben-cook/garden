@@ -1,0 +1,27 @@
+---
+title: How I created this garden
+---
+
+import { BlogLayout } from "../components/BlogLayout";
+
+# How I created this garden
+
+I chose Next.js as the javascript framework to use for this blog for it's ease
+of use and great SEO support.
+
+Then I decided to use TailwindCSS to style the blog, because it's the hot thing
+to do right now and web development is all about chasing trends, right?
+
+I knew I wanted to write without using regular React components everywhere,
+because they're a PITA. I thought about use a CMS<Reference id={1} text="I've
+also had bad experiences recently trying out Strapi" side="right"/>, but even
+fancy CMS's don't facilitate embedding fancy web elements very well. For these
+reasons, I decided to try out [MDX](https://mdxjs.com/). It's been a huge
+success, allowing me to customise my Markdown components with Tailwind and
+allowing me to embed cool [sidenotes](https://www.gwern.net/Sidenotes) as well.
+One downside is that all the content is stored in the source of the website - no
+pretty CMS to write in for me. However, Prettier can be configured to produce a
+pretty nice MDX experience - for example, line lengths of `80` are useful for
+writing, but is too low for regular JSX / React components in my opinion.
+
+export default ({ children }) => <BlogLayout>{children}</BlogLayout>;

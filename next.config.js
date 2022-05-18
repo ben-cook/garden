@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // env: {
+  // pages: getAllPages("pages"),
+  // },
 };
 
 const withMDX = require("@next/mdx")({
