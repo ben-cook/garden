@@ -14,17 +14,17 @@ export const H2 = ({ children }: Props) => {
 };
 
 export const H3 = ({ children }: Props) => {
-  return <h1 className="text-4xl my-4">{children}</h1>;
+  return <h1 className="text-4xl my-3">{children}</h1>;
 };
 
 export const H4 = ({ children }: Props) => {
-  return <h1 className="text-3xl my-4">{children}</h1>;
+  return <h1 className="text-3xl my-2">{children}</h1>;
 };
 
 export const H5 = ({ children }: Props) => {
-  return <h1 className="text-2xl my-4">{children}</h1>;
+  return <h1 className="text-2xl my-1">{children}</h1>;
 };
 
 export const H6 = ({ children }: Props) => {
-  return <h1 className="text-xl my-4">{children}</h1>;
+  return <h1 className="text-xl my-0.5">{children}</h1>;
 };

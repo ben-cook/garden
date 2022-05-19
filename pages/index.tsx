@@ -37,7 +37,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
         </ul>
 
         <h6 className="text-2xl mt-4">Inspiration:</h6>
-        <ul className="text-lg mb-4 list-disc">
+        <ul className="text-lg mb-4">
           <li>
             <a href="https://www.gwern.net/">gwern.net</a>
           </li>
