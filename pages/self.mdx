@@ -1,10 +1,8 @@
----
-title: How I created my Digital Garden
----
+import { PostLayout } from "../components/PostLayout";
 
-import { BlogLayout } from "../components/BlogLayout";
-
-# How I created my Digital Garden
+export const meta = {
+  title: "How I created my Digital Garden",
+};
 
 I chose Next.js as the javascript framework to use for this blog for it's ease
 of use and great SEO support.
@@ -24,4 +22,6 @@ pretty CMS to write in for me. However, Prettier can be configured to produce a
 pretty nice MDX experience - for example, line lengths of `80` are useful for
 writing, but is too low for regular JSX / React components in my opinion.
 
-export default ({ children }) => <BlogLayout>{children}</BlogLayout>;
+export default ({ children }) => (
+  <PostLayout meta={meta}>{children}</PostLayout>
+);

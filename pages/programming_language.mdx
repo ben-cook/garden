@@ -1,10 +1,8 @@
----
-title: How to write your own Programming Language
----
+import { PostLayout } from "../components/PostLayout";
 
-import { BlogLayout } from "../components/BlogLayout";
-
-# How to write your own Programming Language
+export const meta = {
+  title: "How to write your own Programming Language",
+};
 
 At one point in a programmer's journey, one will inevitably find themselves
 wondering how programming languages came to be. How did the first language get
@@ -21,4 +19,6 @@ I will now discuss the usage of a
 Knight<Reference id="2" text="This is a side explanation about knights" side="right" />in
 the ancient game of Chess.
 
-export default ({ children }) => <BlogLayout>{children}</BlogLayout>;
+export default ({ children }) => (
+  <PostLayout meta={meta}>{children}</PostLayout>
+);

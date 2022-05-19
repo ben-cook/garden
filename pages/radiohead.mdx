@@ -1,10 +1,8 @@
----
-title: Radiohead Themes and Motifs
----
+import { PostLayout } from "../components/PostLayout";
 
-import { BlogLayout } from "../components/BlogLayout";
-
-# Radiohead Themes and Motifs
+export const meta = {
+  title: "Radiohead Themes and Motifs",
+};
 
 After Pavement, Radiohead have been selected as the next band to explore the
 themes and motifs of. In this article, I'll explain why Ok Computer is the best
@@ -62,4 +60,6 @@ album.
 - Karma Police
   - slapper again
 
-export default ({ children }) => <BlogLayout>{children}</BlogLayout>;
+export default ({ children }) => (
+  <PostLayout meta={meta}>{children}</PostLayout>
+);

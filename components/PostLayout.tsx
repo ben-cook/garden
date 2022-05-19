@@ -8,6 +8,7 @@ import { MDXLink } from "./mdx/Link";
 
 type Props = {
   children: ReactNode;
+  meta: Record<string, string> & { title: string };
 };
 
 const components: MDXComponents = {
@@ -22,10 +23,15 @@ const components: MDXComponents = {
   Reference: Reference,
 };
 
-export const BlogLayout = ({ children }: Props) => (
-  <div className="flex justify-center items-start h-full w-full">
-    <main className="flex flex-col h-full max-w-prose relative">
-      <MDXProvider components={components}>{children}</MDXProvider>
-    </main>
-  </div>
-);
+export const PostLayout = ({ children, meta }: Props) => {
+  console.log(children);
+
+  return (
+    <div className="flex justify-center items-start h-full w-full">
+      <main className="flex flex-col h-full max-w-prose relative">
+        <H1>{meta.title}</H1>
+        <MDXProvider components={components}>{children}</MDXProvider>
+      </main>
+    </div>
+  );
+};
