@@ -4,6 +4,7 @@ import path from "path";
 export type Post = {
   title: string;
   slug: string;
+  [key: string]: string;
 };
 
 export const getAllPosts = (): Post[] => {
@@ -37,13 +38,22 @@ const parseMetadata = (input: string): Record<string, string> => {
   if (statement) {
     const object = statement[0].match(/\{[\s\S]+\}/);
     if (object) {
+      // lol
       const fixedObject = object[0]
+        .replace(/([a-zA-Z]+):/, (_match, p1) => `"${p1}":`)
+        .replace(/([a-zA-Z]+):/, (_match, p1) => `"${p1}":`)
+        .replace(/([a-zA-Z]+):/, (_match, p1) => `"${p1}":`)
+        .replace(/([a-zA-Z]+):/, (_match, p1) => `"${p1}":`)
+        .replace(/([a-zA-Z]+):/, (_match, p1) => `"${p1}":`)
+        .replace(/([a-zA-Z]+):/, (_match, p1) => `"${p1}":`)
         .replace(/([a-zA-Z]+):/, (_match, p1) => `"${p1}":`)
         .replace(/,[\r\n]+}$/, "}");
 
       try {
         return JSON.parse(fixedObject);
       } catch (err) {
+        console.error("ParseError:");
+        console.error(fixedObject);
         console.error(err);
       }
     }

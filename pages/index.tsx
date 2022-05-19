@@ -25,15 +25,26 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
 
         <h6 className="text-2xl mt-4">Articles:</h6>
         <ul className="text-lg mb-4">
-          {posts.map(({ title, slug }) => (
-            <li key={slug}>
-              <Link href={`/${slug}`}>
-                <a className="text-lg my-2 underline decoration-dotted">
-                  {title}
-                </a>
-              </Link>
-            </li>
-          ))}
+          {posts.map((post) => {
+            const { title, slug } = post;
+            if (!("isPublished" in post) || !post.isPublished) {
+              return null;
+            }
+
+            if (post.isPublished) {
+              console.log("is published");
+            }
+
+            return (
+              <li key={slug}>
+                <Link href={`/${slug}`}>
+                  <a className="text-lg my-2 underline decoration-dotted">
+                    {title}
+                  </a>
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         <h6 className="text-2xl mt-4">Inspiration:</h6>
