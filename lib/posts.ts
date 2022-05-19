@@ -12,8 +12,7 @@ export const getAllPosts = (): Post[] => {
 
   const posts = readdirSync(pagesDirectory)
     .filter((file) => {
-      if (["_app.tsx", "_document.tsx", "index.tsx"].includes(file))
-        return false;
+      if (!file.endsWith(".mdx")) return false;
 
       const stat = lstatSync(path.join(pagesDirectory, file));
       return stat.isFile();
