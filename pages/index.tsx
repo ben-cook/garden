@@ -28,8 +28,8 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
           {posts.map(({ title, slug }) => (
             <li key={slug}>
               <Link href={`/${slug}`}>
-                <a>
-                  <p>{title}</p>
+                <a className="text-lg my-2 underline decoration-dotted">
+                  {title}
                 </a>
               </Link>
             </li>
