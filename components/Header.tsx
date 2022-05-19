@@ -1,11 +1,21 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export const Header = () => (
   <div className="flex justify-center h-20">
     <header className="flex grow items-center max-w-screen-md">
-      <a className="flex justify-between items-center">
-        <span className="mr-2 text-2xl">🪴</span>
-        <span className="font-semibold">Ben Cook</span>
-      </a>
-      <a className="flex justify-center ml-auto">About</a>
+      <Link href={"/"}>
+        <a className="flex justify-between items-center">
+          <Image
+            src="/favicon-32x32.png"
+            alt=""
+            layout="fixed"
+            width="24rem"
+            height="24rem"
+          />
+          <span className="font-semibold ml-2">Ben Cook</span>
+        </a>
+      </Link>
     </header>
   </div>
 );
